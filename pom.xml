@@ -5,7 +5,7 @@
     <groupId>com.doordeck.simplegpio</groupId>
     <artifactId>simplegpio-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
 
     <name>SimpleGPIO</name>
     <description>Simple and portable GPIO library using sysfs</description>
@@ -44,7 +44,7 @@
         <url>https://github.com/doordeck/simplegpio</url>
         <connection>scm:git:git@github.com:doordeck/simplegpio.git</connection>
         <developerConnection>scm:git:git@github.com:doordeck/simplegpio.git</developerConnection>
-      <tag>HEAD</tag>
+      <tag>simplegpio-parent-1.0</tag>
     </scm>
 
     <distributionManagement>
