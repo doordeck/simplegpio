@@ -7,6 +7,10 @@
     <packaging>pom</packaging>
     <version>1.1-SNAPSHOT</version>
 
+    <name>SimpleGPIO</name>
+    <description>Easy manipulation of GPIO pins on Linux</description>
+    <url>https://github.com/doordeck/simplegpio</url>
+
     <modules>
         <module>simplegpio-module-epoll</module>
         <module>simplegpio-module-libbulldog</module>
