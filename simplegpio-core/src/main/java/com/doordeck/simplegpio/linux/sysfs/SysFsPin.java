@@ -109,7 +109,7 @@ public class SysFsPin {
     }
 
     public void setValue(Signal signal) {
-        echoToFile(String.valueOf(signal.getNumericValue()), getPinDirectory());
+        echoToFile(String.valueOf(signal.getNumericValue()), getValueFilePath());
     }
 
     private void echoToFile(String value, Path file) {

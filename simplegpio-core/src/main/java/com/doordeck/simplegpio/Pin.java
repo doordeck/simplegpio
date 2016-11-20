@@ -40,9 +40,11 @@ import java.util.List;
  * other feature activation during that time.</p>
  *
  * <p>Mostly, the pin is just used to grab a feature that is available on
- * it:<br/>
- * {@code DigitalOutput output = pin.as(DigitalOutput.class);}<br/>
- * {@code Pwm pwm = pin.as(Pwm.class); }
+ * it:
+ * {@code
+ *      DigitalOutput output = pin.as(DigitalOutput.class);
+ *      Pwm pwm = pin.as(Pwm.class);
+ * }
  * </p>
  */
 public class Pin {

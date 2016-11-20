@@ -7,7 +7,7 @@ A simple library for reading input and writing output to GPIO pins on Linux plat
 
 ## Usage
 SimpleGPIO is split into three components
-- **simplegpio-core** - Core components including a fallback input poller based on a naieve pure Java implementation
+- **simplegpio-core** - Core components including a fallback input poller based on a naive pure Java implementation
 - **simplegpio-module-libbulldog** - An enhanced input poller using JNI and libbulldog; this version offers most stability and performance but least portability - the libbulldog library should be [downloaded](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22bulldog-linux-native-raspberrypi%22) and named 'libbulldog-linux.so'
 - **simplegpio-module-epoll** - A performant and slightly more portable input poller based on calls to epoll using JNA
 

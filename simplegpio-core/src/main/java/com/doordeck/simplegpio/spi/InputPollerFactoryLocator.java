@@ -37,9 +37,12 @@ public class InputPollerFactoryLocator {
             boolean valid = factory.isValid();
             LOG.debug("Trying to load {}... {}", factory.getClass().getSimpleName(), valid ? "success" : "failed");
             if (valid) {
+                LOG.info("Using {} for GPIO input polling", factory.getClass().getSimpleName());
                 return factory;
             }
         }
+
+        LOG.info("Using {} for GPIO input polling", BasicInputPollerFactory.class.getSimpleName());
         return new BasicInputPollerFactory();
     }
 }

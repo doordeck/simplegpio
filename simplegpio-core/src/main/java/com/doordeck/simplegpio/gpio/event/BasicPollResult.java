@@ -10,6 +10,6 @@ public class BasicPollResult implements PollResult {
 
     @Override
     public byte[] getData() {
-        return new byte[0];
+        return data;
     }
 }

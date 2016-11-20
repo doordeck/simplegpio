@@ -9,10 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>simplegpio-libbulldog</artifactId>
+    <artifactId>simplegpio-module-libbulldog</artifactId>
 
     <properties>
-        <bulldog.version>0.2.0</bulldog.version>
+        <bulldog.version>0.2.1</bulldog.version>
     </properties>
 
     <dependencies>
@@ -24,6 +24,19 @@
         <dependency>
             <groupId>io.silverspoon</groupId>
             <artifactId>bulldog-linux-native-beagleboneblack</artifactId>
+            <version>${bulldog.version}</version>
+            <type>so</type>
+            <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.silverspoon</groupId>
+                    <artifactId>bulldog-linux</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>io.silverspoon</groupId>
+            <artifactId>bulldog-linux-native-raspberrypi</artifactId>
             <version>${bulldog.version}</version>
             <type>so</type>
             <scope>provided</scope>
