@@ -26,10 +26,11 @@ import com.sun.jna.Memory;
 import com.sun.jna.Pointer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import sun.misc.SharedSecrets;
 
+import java.io.FileDescriptor;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.lang.reflect.Field;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
@@ -57,11 +58,16 @@ public class JNAEpollThread extends AbstractInputPoller {
         if (isSetup.compareAndSet(false, true)) {
             try {
                 channel = new RandomAccessFile(getFilename().toFile(), "r");
-                fileDescriptor = SharedSecrets.getJavaIOFileDescriptorAccess().get(channel.getFD());
+
+                // Reflectively access the "fd" field in FileDescriptor (the actual integer)
+                FileDescriptor fd = channel.getFD();
+                Field field = fd.getClass().getDeclaredField("fd");
+                field.setAccessible(true);
+                fileDescriptor = field.getInt(fd);
                 epollFd = LibEpoll.epoll_create(1);
                 LibEpoll.EpollEvent.ByReference epollEvent = new LibEpoll.EpollEvent.ByReference(fileDescriptor, LibEpoll.EPOLLPRI | LibEpoll.EPOLLIN | LibEpoll.EPOLLET);
                 LibEpoll.epoll_ctl(epollFd, LibEpoll.EPOLL_CTL_ADD, fileDescriptor, epollEvent);
-            } catch (IOException|LastErrorException e) {
+            } catch (IOException|LastErrorException|NoSuchFieldException|IllegalAccessException e) {
                 LOG.error("Unable to open {} for epoll", getFilename(), e);
                 throw new RuntimeException(e);
             }
@@ -97,7 +103,7 @@ public class JNAEpollThread extends AbstractInputPoller {
             }
         }
 
-        return pollResults.toArray(new PollResult[pollResults.size()]);
+        return pollResults.toArray(new PollResult[0]);
     }
 
     @Override

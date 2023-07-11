@@ -25,7 +25,7 @@
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
         </license>
     </licenses>
 
@@ -44,7 +44,7 @@
         <url>https://github.com/doordeck/simplegpio</url>
         <connection>scm:git:git@github.com:doordeck/simplegpio.git</connection>
         <developerConnection>scm:git:git@github.com:doordeck/simplegpio.git</developerConnection>
-      <tag>HEAD</tag>
+        <tag>main</tag>
     </scm>
 
     <distributionManagement>
@@ -67,13 +67,13 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>4.13.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.0.13</version>
+            <version>1.4.8</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -195,7 +195,7 @@
                                     <goal>sign</goal>
                                 </goals>
                                 <configuration>
-                                    <gpg.keyname>${gpg.keyname}</gpg.keyname>
+                                    <keyname>${gpg.keyname}</keyname>
                                 </configuration>
                             </execution>
                         </executions>

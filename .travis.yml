@@ -1,7 +1,0 @@
-sudo: false
-language: java
-after_success:
-  - mvn -B cobertura:cobertura coveralls:report
-cache:
-  directories:
-    - $HOME/.m2
